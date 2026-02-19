@@ -4,3 +4,31 @@
 *:after {
   box-sizing: border-box;
 }
+
+header {
+  display: flex;
+  justify-content: space-between; 
+  padding: 5px 5px;
+}
+
+header a {
+  color: black;
+  text-decoration: none;
+}
+
+header .siteName a {
+  color: rgb(50, 50, 50);           /* only affects the first link */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+background-color: black;
+color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around; 
+}
