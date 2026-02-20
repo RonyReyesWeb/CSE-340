@@ -49,3 +49,35 @@ nav ul {
   display: flex;
   justify-content: space-around; 
 }
+
+.hero-content {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  overflow: hidden;
+
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: #5A9BD5;
+  padding: 2rem;
+}
+
+.elevated {
+  background: rgba(242, 238, 238, 0.6); 
+  padding: 1rem;
+  max-width: 300px;
+  border-radius: 8px;
+}

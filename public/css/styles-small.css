@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+  .hero-content {
+    height: 40vh; 
+  }
+
+  .hero-text {
+    padding: 1rem;
+    font-size: 0.9rem; 
+  }
+
+  .elevated {
+    max-width: 90%; 
+    padding: 0.8rem;
+  }
+}
