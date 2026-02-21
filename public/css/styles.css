@@ -81,3 +81,38 @@ nav ul {
   max-width: 300px;
   border-radius: 8px;
 }
+
+.features {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.upgrades {
+  flex: 1;
+}
+
+.reviews {
+  flex: 1;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.upgrade .img-bg {
+  background-color: #4da6ff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.upgrade img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
