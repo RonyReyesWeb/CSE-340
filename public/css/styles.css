@@ -9,8 +9,8 @@
   --primary-background: #fff;
   --main-accent: #01b0d3;
   --body-font: Inter;
-  --primary-text: #242333; /* Added for header.ejs */
-  --heading-font: Literata; /* Added for main content area (index.ejs) */
+  --primary-text: #242333; 
+  --heading-font: Literata;
 }
 
 body {
@@ -26,7 +26,6 @@ body {
   padding-bottom: 1em;
 }
 
-/* BEGIN header.ejs styles */
 #top-header {
   display: flex;
   justify-content: space-between;
@@ -45,7 +44,7 @@ body {
   justify-content: space-evenly;
 }
 
-header > img {
+header img {
   max-width: 40%;
 }
 
@@ -55,9 +54,7 @@ header a {
   display: inline-block;
   padding: 2vh 0;
 }
-/* END header.ejs styles */
 
-/* BEGIN navigation.ejs style */
 nav {
   background-color: var(--primary-text);
   color: var(--primary-background);
@@ -74,9 +71,7 @@ nav li {
   padding-top: 1em;
   padding-bottom: 1em;
 }
-/* END navigation.ejs style */
 
-/* BEGIN footer.ejs style */
 footer {
   margin-top: 2rem;
 }
@@ -91,9 +86,7 @@ hr {
   border: 2px solid var(--primary-text);
   margin: 0;
 }
-/* END footer.ejs style */
 
-/* BEGIN index.ejs styles */
 img {
   max-width: 100%;
 }
@@ -104,7 +97,7 @@ h2 {
   font-family: var(--heading-font), serif;
 }
 
-#hero {
+#First {
   background-image: url("/images/vehicles/delorean.jpg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -114,37 +107,47 @@ h2 {
   display: flex;
 }
 
-#hero h2 {
+#First h2 {
   margin-left: 0;
 }
 
-#hero a:hover {
+#First a:hover {
   opacity: 0.5;
 }
 
-#hero li {
+#First li {
   list-style: none;
   color: var(--main-accent);
   font-size: 0.85em;
 }
 
-#hero li h2 {
+#First li h2 {
   margin-top: 0;
   margin-bottom: 0;
   color: var(--main-accent);
 }
 
-#hero ul {
+#First ul {
   padding-left: 0;
   margin-top: 0;
-  max-width: 400px;
+  max-width: 200px;
   margin-left: 0.5em;
   margin-bottom: 2rem;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-#actionbtn {
-  display: inline-block;
+#First-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#First h1 {
+  margin-left: 0.5em;
+  margin-bottom: 0.25rem;
+  background-color: transparent; 
+}
+
+#boton {
   max-width: 25vw;
   padding: 0.5rem;
   background-color: var(--main-accent);
@@ -154,21 +157,18 @@ h2 {
   font-size: 12px;
 }
 
-#actionbtn:hover {
-  opacity: 0.5;
-}
-
-/* For Delorian list */
-section ul {
-  padding: 0 0 0 1rem;
-}
-
+/* for review styling tag */
 #review li {
   font-size: 0.9em;
   margin-bottom: 1em;
 }
 
-.flex {
+section ul {
+  padding-left: 1rem; 
+}
+
+/* for updrades styling tag */
+.upgrades {
   display: flex;
   margin-bottom: 2em;
   justify-content: center;
@@ -176,11 +176,11 @@ section ul {
   padding-left: 0.25em;
 }
 
-.flex a {
+.upgrades a {
   width: 100%;
 }
 
-.add-col {
+.upgrades-col {
   background-color: var(--main-accent);
   height: 5.5em;
   width: 95%;
@@ -194,7 +194,7 @@ a figure {
 figure img {
   display: block;
   margin: auto;
-  padding-top: 0.5em;
+  padding-top: 0.3em;
 }
 
 figure figcaption {
@@ -257,7 +257,7 @@ section {
     margin-top: 1em;
   }
 
-  #actionbtn {
+  #boton {
     display: block;
     width: 90%;
     margin-top: 1.5em;
