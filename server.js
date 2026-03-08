@@ -15,6 +15,7 @@ const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require('./routes/accountRoute')
 const app = express()
+const bodyParser = require("body-parser")
 /* ***********************
  * Engine and Templates
  *************************/
@@ -36,6 +37,9 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // 2️⃣ Flash middleware (after session)
 app.use(flash())
