@@ -31,7 +31,7 @@ app.use("/inv", inventoryRoute)
 
 // route for the error 404
 app.use(async (req, res, next) => {
-  next({statuas: 404, message: 'Sorry, we appear to have lost that page.'})
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
 /* ***********************
 /* ***********************
@@ -39,11 +39,19 @@ app.use(async (req, res, next) => {
 * Place after all other middleware
 *************************/
 app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav();
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`);
-  const message = err.status === 404 ? err.message : 'Oh no! There was a crash. Maybe try a different route?';
-  res.render("errors/error", { title: err.status || 'Server Error', message, nav });
-});
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  const status = err.status || 500
+  const message =
+    status === 404
+      ? err.message
+      : "Oh no! There was a crash. Maybe try a different route?"
+  res.status(status).render("errors/error", {
+    title: status === 404 ? "404 Not Found" : "Server Error",
+    message,
+    nav
+  })
+})
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
