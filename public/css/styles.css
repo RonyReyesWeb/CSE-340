@@ -210,6 +210,7 @@ section {
   margin-bottom: 2em;
   margin-top: 1em;
 }
+/* nuevos cambios */
 
 @media only screen and (min-width: 768px) {
   body {
@@ -287,5 +288,14 @@ section {
 
   #review ul {
     margin-top: 0;
+  }
+  
+  .vehicle-detail-container {
+    flex-direction: column; /* stack image and info */
+    align-items: center;
+  }
+  
+  .vehicle-info {
+    text-align: center;
   }
 }
