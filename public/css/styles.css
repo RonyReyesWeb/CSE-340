@@ -62,8 +62,23 @@ nav {
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   padding: 0 1vw;
   justify-content: space-around;
+  list-style: none;
+  background-color: #1a1a2e;
+}
+
+nav ul li {
+  margin: 0 15px;
+  flex-shrink: 1; 
+}
+
+nav ul li a {
+  color: #ffffff; 
+  text-decoration: none; 
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.1vw, 1.1rem); 
 }
 
 nav li {
@@ -150,8 +165,8 @@ h2 {
 #boton {
   max-width: 25vw;
   padding: 0.5rem;
-  background-color: var(--main-accent);
-  color: var(--primary-text);
+  background-color: black;
+  color: white;
   font-weight: 800;
   border-radius: 0.25rem;
   font-size: 12px;
@@ -211,6 +226,98 @@ section {
   margin-top: 1em;
 }
 /* nuevos cambios */
+/* Vehicle Detail Container */
+.vehicle-detail-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+/* Vehicle Image */
+.vehicle-image {
+  flex: 1 1 400px; 
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Vehicle Info */
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* Headings */
+.vehicle-info h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs */
+.vehicle-info p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Price Highlight */
+.vehicle-info p:first-of-type {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: blue;
+}
+
+/* =======================
+   Vehicle Grid Styling
+======================= */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#inv-display li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Vehicle Thumbnail */
+#inv-display li img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Vehicle Info Section */
+#inv-display li .namePrice {
+  padding: 10px;
+}
+
+#inv-display li .namePrice h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+#inv-display li .namePrice span {
+  font-weight: bold;
+  color: blue;
+  font-size: 1.1rem;
+}
+
 
 @media only screen and (min-width: 768px) {
   body {
@@ -261,11 +368,12 @@ section {
     display: block;
     width: 90%;
     margin-top: 1.5em;
-    background-color: var(--main-accent);
-    color: var(--primary-text);
+    background-color: black;
+    color: white;
     font-weight: 800;
     font-size: large;
   }
+
   .flex-content {
     flex-direction: row;
     gap: 2em;
@@ -290,6 +398,11 @@ section {
     margin-top: 0;
   }
   
+  #inv-display {
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 10px;
+  }
+
   .vehicle-detail-container {
     flex-direction: column; /* stack image and info */
     align-items: center;
