@@ -2,20 +2,19 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
-const baseController = require("./controllers/baseController")
-/* ***********************
- * Require Statements
- *************************/
-const session = require("express-session")
-const pool = require('./database/')
-
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
+const session = require("express-session")
+const flash = require("connect-flash")
+const pgSession = require("connect-pg-simple")(session)
 const env = require("dotenv").config()
-const app = express()
+const pool = require('./database/')
+const utilities = require("./utilities/")
+const baseController = require("./controllers/baseController")
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
-const utilities = require("./utilities/")
+const accountRoute = require('./routes/accountRoute')
+const app = express()
 /* ***********************
  * Engine and Templates
  *************************/
@@ -25,9 +24,10 @@ app.set("layout", "layouts/layout")
 
 /* ***********************
  * Middleware
- * ************************/
- app.use(session({
-  store: new (require('connect-pg-simple')(session))({
+ *************************/
+// 1️⃣ Session middleware (must come first)
+app.use(session({
+  store: new pgSession({
     createTableIfMissing: true,
     pool,
   }),
@@ -37,8 +37,10 @@ app.set("layout", "layouts/layout")
   name: 'sessionId',
 }))
 
-app.use(require('connect-flash')())
-app.use(function(req, res, next){
+// 2️⃣ Flash middleware (after session)
+app.use(flash())
+// 3️⃣ Make flash messages available in all views
+app.use((req, res, next) => {
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
@@ -47,12 +49,11 @@ app.use(function(req, res, next){
  * Routes
  *************************/
 app.use(static)
-// index route
-app.get("/", utilities.handleErrors(baseController.buildHome))
-// Inventory routes
+app.use('/account', accountRoute)
 app.use("/inv", inventoryRoute)
 
 // route for the error 404
+app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
