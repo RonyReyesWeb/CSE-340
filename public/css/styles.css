@@ -318,6 +318,65 @@ section {
   font-size: 1.1rem;
 }
 
+/* =======================
+   Container for the form
+======================= */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto; /* center on page */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Headings */
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input fields */
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Flash messages */
+ul.notice {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #bee5eb;
+}
 
 @media only screen and (min-width: 768px) {
   body {
@@ -368,7 +427,7 @@ section {
     display: block;
     width: 90%;
     margin-top: 1.5em;
-    background-color: black;
+    background-color: #1a1a2e;
     color: white;
     font-weight: 800;
     font-size: large;
@@ -404,7 +463,7 @@ section {
   }
 
   .vehicle-detail-container {
-    flex-direction: column; /* stack image and info */
+    flex-direction: column; 
     align-items: center;
   }
   
