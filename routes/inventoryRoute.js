@@ -1,7 +1,26 @@
 const express = require("express");
-const router = new express.Router();
+const router = express.Router();
 const invController = require("../controllers/invController");
 const utilities = require("../utilities"); 
+const inventoryValidation = require("../validation/inventory-validation");
+// Management view
+router.get('/', invController.buildManagementView);
+
+// Add classification
+router.get('/add-classification', invController.buildAddClassification);
+router.post(
+  '/add-classification',
+  inventoryValidation.addClassificationRules,
+  invController.addClassification
+);
+
+// Add inventory item
+router.get('/add-inventory', invController.buildAddInventory);
+router.post(
+  '/add-inventory',
+  inventoryValidation.addInventoryRules,
+  invController.addInventoryItem
+);
 
 // Build inventory by classification
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
