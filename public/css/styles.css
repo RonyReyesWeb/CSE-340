@@ -448,7 +448,17 @@ input:required:valid {
   user-select: none;
 }
 
+/* Remove arrows from number inputs (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Remove arrows from number inputs (Firefox) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 @media only screen and (min-width: 768px) {
   body {

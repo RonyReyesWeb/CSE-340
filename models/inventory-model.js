@@ -62,27 +62,33 @@ async function insertClassification(classification_name) {
 async function insertInventory(invData) {
   try {
     const {
+     classification_id,
       inv_make,
       inv_model,
-      inv_price,
       inv_year,
-      inv_miles,
+      inv_description,
       inv_image,
-      classification_id
+      inv_thumbnail,
+      inv_price,
+      inv_miles,   
+      inv_color
     } = invData;
 
-    const sql = `INSERT INTO public.inventory 
-      (inv_make, inv_model, inv_price, inv_year, inv_miles, inv_image, classification_id) 
-      VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+      const sql = `INSERT INTO public.inventory
+      (classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`;
     
     const result = await pool.query(sql, [
+     classification_id,
       inv_make,
       inv_model,
-      inv_price,
       inv_year,
-      inv_miles,
+      inv_description,
       inv_image,
-      classification_id
+      inv_thumbnail,
+      inv_price,
+      inv_miles,   
+      inv_color
     ]);
 
     return result;

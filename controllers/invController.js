@@ -74,14 +74,17 @@ async function buildAddInventory(req, res, next) {
       message: null,
       errors: null,
       classificationList,
-      nav,
+      nav,   
+      classification_id: '',
       inv_make: '',
       inv_model: '',
-      inv_price: '',
       inv_year: '',
-      inv_miles: '',
+      inv_description: '',
       inv_image: '/images/no-image.png',
-      classification_id: ''
+      inv_thumbnail: '/images/no-image.png',
+      inv_price: '',
+      inv_miles: '',
+      inv_color: '',
     });
   } catch (error) {
     next(error);
@@ -103,13 +106,16 @@ async function addInventoryItem(req, res, next) {
       errors: errors.array(),
       classificationList,
       nav,
+      classification_id: req.body.classification_id,
       inv_make: req.body.inv_make,
       inv_model: req.body.inv_model,
-      inv_price: req.body.inv_price,
       inv_year: req.body.inv_year,
-      inv_miles: req.body.inv_miles,
+      inv_description: req.body.inv_description,
       inv_image: req.body.inv_image,
-      classification_id: req.body.classification_id
+      inv_thumbnail: req.body.inv_thumbnail,
+      inv_price: req.body.inv_price,
+      inv_miles: req.body.inv_miles,
+      inv_color: req.body.inv_color,
     });
   }
 

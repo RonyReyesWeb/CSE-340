@@ -26,8 +26,9 @@
       name="inv_make"
       id="inv_make"
       minlength="3"
-      required
-      value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>">
+      placeholder="Min of 3 characters"
+      value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>"
+      required>
 
     <!-- Model -->
     <label for="inv_model">Model:</label>
@@ -36,8 +37,9 @@
       name="inv_model"
       id="inv_model"
       minlength="3"
-      required
-      value="<%= typeof inv_model !== 'undefined' ? inv_model : '' %>">
+      placeholder="Min of 3 characters"
+      value="<%= typeof inv_model !== 'undefined' ? inv_model : '' %>"
+      required>
 
     <!-- Year -->
     <label for="inv_year">Year:</label>
@@ -45,10 +47,11 @@
       type="number"
       name="inv_year"
       id="inv_year"
-      required
+      placeholder="4-digit year"
       min="1900"
       max="2099"
-      value="<%= typeof inv_year !== 'undefined' ? inv_year : '' %>">
+      value="<%= typeof inv_year !== 'undefined' ? inv_year : '' %>"
+      required>
 
     <!-- Description -->
     <label for="inv_description">Description:</label>
@@ -79,9 +82,8 @@
       type="number"
       name="inv_price"
       id="inv_price"
+      placeholder="decimal or integer"
       required
-      min="0"
-      step="0.01"
       value="<%= typeof inv_price !== 'undefined' ? inv_price : '' %>">
 
     <!-- Miles -->
@@ -90,10 +92,9 @@
       type="number"
       name="inv_miles"
       id="inv_miles"
-      required
-      min="0"
-      step="1"
-      value="<%= typeof inv_miles !== 'undefined' ? inv_miles : '' %>">
+      placeholder="Digits only"
+      value="<%= typeof inv_miles !== 'undefined' ? inv_miles : '' %>"
+      required>
 
     <!-- Color -->
     <label for="inv_color">Color:</label>
