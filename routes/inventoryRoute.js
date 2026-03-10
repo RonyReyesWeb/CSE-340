@@ -35,6 +35,7 @@ router.get("/trigger-error",utilities.handleErrors(async (req, res) => {throw ne
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 // Edit inventory view (Step 1 - GET)
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
-
+// Update inventory (Step 2 - POST)
+router.post("/update/", inventoryValidation.addInventoryRules, inventoryValidation.checkUpdateData, utilities.handleErrors(invController.updateInventory));
 
 module.exports = router;
