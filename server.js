@@ -21,7 +21,6 @@ const bodyParser = require("body-parser")
 /* ***********************
  * Engine and Templates
  *************************/
-app.use(cookieParser());
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "layouts/layout")
@@ -30,6 +29,11 @@ app.set("layout", "layouts/layout")
  * Middleware
  *************************/
 // 1️⃣ Session middleware (must come first)
+
+// Week5 - Adding packages
+app.use(cookieParser());
+app.use(utilities.checkJWTToken)
+
 app.use(express.json());
 
 app.use(session({
