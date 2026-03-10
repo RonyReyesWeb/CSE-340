@@ -15,8 +15,8 @@ router.post('/register', regValidate.registationRules(), regValidate.checkRegDat
 
 // Week5 - modifying the router post
 router.post( "/login", regValidate.loginRules(), regValidate.checkLoginData, utilities.handleErrors(accountController.accountLogin))
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccount))
 
-router.get("/", utilities.handleErrors(accountController.buildAccount))
 
 module.exports = router
 
