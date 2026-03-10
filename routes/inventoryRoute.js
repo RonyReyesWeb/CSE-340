@@ -33,6 +33,8 @@ router.get("/trigger-error",utilities.handleErrors(async (req, res) => {throw ne
 
 // Week 5 adding route and return the json 
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+// Edit inventory view (Step 1 - GET)
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
 
 
 module.exports = router;
