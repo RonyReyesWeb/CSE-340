@@ -37,5 +37,11 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView));
 // Update inventory (Step 2 - POST)
 router.post("/update/", inventoryValidation.addInventoryRules, inventoryValidation.checkUpdateData, utilities.handleErrors(invController.updateInventory));
+// Week 5 team activity
+// Delete confirmation view (GET)
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteView));
+
+// Delete inventory item (POST)
+router.post("/delete/", utilities.handleErrors(invController.deleteInventory));
 
 module.exports = router;

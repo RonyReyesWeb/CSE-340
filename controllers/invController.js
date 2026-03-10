@@ -296,6 +296,53 @@ async function updateInventory(req, res, next) {
   }
 }
 
+// week 5 team activity
+/* ***************************
+ *  Build delete confirmation view
+ * ************************** */
+async function buildDeleteView(req, res, next) {
+  try {
+    const inv_id = parseInt(req.params.inv_id);
+    const nav = await utilities.getNav();
+    const itemData = await invModel.getInventoryItemById(inv_id);
+    const itemName = `${itemData.inv_make} ${itemData.inv_model}`;
+    res.render("inventory/delete-confirm", {
+      title: "Delete " + itemName,
+      nav,
+      errors: null,
+      message: req.flash("message"),
+      inv_id: itemData.inv_id,
+      inv_make: itemData.inv_make,
+      inv_model: itemData.inv_model,
+      inv_year: itemData.inv_year,
+      inv_price: itemData.inv_price,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+// week 5 team activity
+/* ***************************
+ *  Delete Inventory Item
+ * ************************** */
+async function deleteInventory(req, res, next) {
+  try {
+    const inv_id = parseInt(req.body.inv_id);
+    const deleteResult = await invModel.deleteInventoryItem(inv_id);
+
+    if (deleteResult.rowCount) {
+      req.flash("message", "The vehicle was successfully deleted.");
+      res.redirect("/inv/");
+    } else {
+      req.flash("message", "Sorry, the delete failed.");
+      res.redirect(`/inv/delete/${inv_id}`);
+    }
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   buildManagementView,
   buildAddClassification,
@@ -306,5 +353,7 @@ module.exports = {
   buildDetail,
   getInventoryJSON,
   editInventoryView,
-  updateInventory   
+  updateInventory,
+  buildDeleteView, 
+  deleteInventory 
 };
