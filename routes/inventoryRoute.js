@@ -31,4 +31,8 @@ router.get("/detail/:inv_id", utilities.handleErrors(invController.buildDetail))
 // Optional: 500-error test route
 router.get("/trigger-error",utilities.handleErrors(async (req, res) => {throw new Error("Intentional server error for testing");}));
 
+// Week 5 adding route and return the json 
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+
 module.exports = router;

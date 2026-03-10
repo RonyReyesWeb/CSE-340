@@ -102,3 +102,7 @@ const host = process.env.HOST
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
+
+// Week 5 Showing what user has been log in
+//trying to show user in the header
+// app.use((req, res, next) => {res.locals.user = req.session.user; next();});

@@ -8,14 +8,17 @@ const { validationResult } = require("express-validator");
 async function buildManagementView(req, res, next) {
   try {
     const nav = await utilities.getNav();
+    // Week 5 Build the classification dropdown list
+    const classificationSelect = await utilities.buildClassificationList()
     const message = req.flash("message");
     res.render("inventory/management", {
       title: "Inventory Management",
       message,
-      nav
+      nav,
+      classificationSelect
     });
   } catch (error) {
-    next(error);
+    next(error)
   }
 }
 
@@ -176,6 +179,24 @@ async function buildDetail(req, res, next) {
   }
 }
 
+// week 5 
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+async function getInventoryJSON(req, res, next) {
+  try {
+    const classification_id = parseInt(req.params.classification_id);
+    const invData = await invModel.getInventoryByClassificationId(classification_id);
+    if (invData[0]?.inv_id) {
+      return res.json(invData);
+    } else {
+      return next(new Error("No data returned"));
+    }
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   buildManagementView,
   buildAddClassification,
@@ -183,5 +204,5 @@ module.exports = {
   buildAddInventory,
   addInventoryItem,
   buildByClassificationId,
-  buildDetail
+  getInventoryJSON
 };
