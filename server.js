@@ -2,6 +2,8 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
+const cookieParser = require('cookie-parser');
+
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
@@ -19,6 +21,7 @@ const bodyParser = require("body-parser")
 /* ***********************
  * Engine and Templates
  *************************/
+app.use(cookieParser());
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "layouts/layout")
@@ -27,6 +30,8 @@ app.set("layout", "layouts/layout")
  * Middleware
  *************************/
 // 1️⃣ Session middleware (must come first)
+app.use(express.json());
+
 app.use(session({
   store: new pgSession({
     createTableIfMissing: true,
