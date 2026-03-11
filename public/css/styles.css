@@ -309,7 +309,7 @@ section {
 #inv-display li .namePrice h2 {
   margin: 0 0 5px 0;
   font-size: 1.2rem;
-  color: #333;
+  color: #1a1a2e;
 }
 
 #inv-display li .namePrice span {
@@ -324,6 +324,7 @@ section {
 .form-container {
   /* max-height: 70vh;      
   overflow-y: auto; */
+  text-align: center;
   max-width: 400px;
   margin: 50px auto; /* center on page */
   padding: 30px;
@@ -371,25 +372,49 @@ section {
 
 /* Style for the inv management page and the two links to add cars */
 .form-container ul {
-  list-style: none;      
-  padding-left: 0;         
-  margin: 0;               
-  display: flex;          
-  flex-direction: column; 
-  align-items: center;     
-  gap: 7px;             
+  list-style: none;
+  padding-left: 0;     
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .form-container ul li a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: bold;
   display: inline-block;
-  margin-bottom: 5px;
+  background-color: #1a1a2e;
+  padding: 8px 20px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 .form-container ul li a:hover {
-  color: #333;
+  color: #b8b8b8;
+  text-decoration: underline;
+}
+
+/* Applying content for the account management p values */
+.form-container p {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container p a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #1a1a2e;
+  padding: 8px 20px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.form-container p a:hover {
+  color: #b8b8b8;
   text-decoration: underline;
 }
 
@@ -402,6 +427,30 @@ section {
   border: 1px solid #ccc;
   box-sizing: border-box; 
   font-size: 16px;      
+}
+
+/* Inventory table */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#inventoryDisplay thead {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#inventoryDisplay a {
+  color: #333;
+  text-decoration: none;
 }
 
 /* Flash messages */

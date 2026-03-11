@@ -1,7 +1,7 @@
 <div class="form-container">
   <h1>Inventory Management</h1>
 
-  <% if (message) { %>
+  <% if (message && message.length > 0) { %>
     <p class="flash-message"><%= message %></p>
   <% } %>
 
@@ -11,7 +11,7 @@
   </ul>
 
   <!-- Week5 assignments -->
-  <h2>Manage Inventory</h2>
+  <h1>Manage Inventory</h1>
   <p>Select a classification from the list to see the items belonging to that classification.</p>
   <!-- Week5 assignments Classification dropdown from controller -->
   <%- classificationSelect %>
