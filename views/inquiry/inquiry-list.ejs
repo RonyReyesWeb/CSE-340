@@ -1,0 +1,42 @@
+<div class="form-container">
+  <%- messages() %>
+
+  <h1><%= title %></h1>
+
+  <% if (message && message.length > 0) { %>
+    <p class="flash-message"><%= message %></p>
+  <% } %>
+
+  <% if (inquiries && inquiries.length > 0) { %>
+    <table class="inquiry-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Vehicle</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% inquiries.forEach(inquiry => { %>
+          <tr>
+            <td><%= new Date(inquiry.inquiry_date).toLocaleDateString() %></td>
+            <td><%= inquiry.inquiry_firstname %> <%= inquiry.inquiry_lastname %></td>
+            <td><%= inquiry.inquiry_email %></td>
+            <td>
+              <% if (inquiry.inv_make) { %>
+                <%= inquiry.inv_year %> <%= inquiry.inv_make %> <%= inquiry.inv_model %>
+              <% } else { %>
+                General Inquiry
+              <% } %>
+            </td>
+            <td><%= inquiry.inquiry_message %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No inquiries have been submitted yet.</p>
+  <% } %>
+</div>

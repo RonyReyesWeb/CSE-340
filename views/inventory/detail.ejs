@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+<div class="form-container">
+  <%- messages() %>
+
+  <% if (locals.message && message.length > 0) { %>
+    <p class="flash-message"><%= message %></p>
+  <% } %>
+
   <%- vehicleDetailHTML %>
-</body>
-</html>
+
+  <p>
+    <a href="/inquiry/<%= vehicle.inv_id %>">Contact Us About This Vehicle</a>
+  </p>
+</div>

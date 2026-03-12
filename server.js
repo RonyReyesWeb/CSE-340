@@ -18,6 +18,7 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require('./routes/accountRoute')
 const app = express()
 const bodyParser = require("body-parser")
+const inquiryRoute = require("./routes/inquiryRoute");
 /* ***********************
  * Engine and Templates
  *************************/
@@ -66,6 +67,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/inquiry", inquiryRoute);
+
 /* ***********************
  * Routes
  *************************/
@@ -110,3 +113,4 @@ const host = process.env.HOST
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
+

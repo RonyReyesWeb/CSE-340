@@ -172,7 +172,8 @@ async function buildDetail(req, res, next) {
       title: `${vehicleData.inv_make} ${vehicleData.inv_model}`,
       nav,
       vehicle: vehicleData,
-      vehicleDetailHTML
+      vehicleDetailHTML,
+        message: req.flash("message") 
     });
   } catch (error) {
     next(error);

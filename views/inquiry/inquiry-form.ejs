@@ -1,0 +1,51 @@
+<div class="form-container">
+  <%- messages() %>
+
+  <h1><%= title %></h1>
+
+  <% if (message && message.length > 0) { %>
+    <p class="flash-message"><%= message %></p>
+  <% } %>
+
+  <% if (errors && errors.length > 0) { %>
+    <ul class="notice">
+      <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <!-- Vehicle summary -->
+  <div class="inquiry-vehicle-summary">
+    <img src="<%= vehicleData.inv_thumbnail %>" 
+      alt="<%= vehicleData.inv_make %> <%= vehicleData.inv_model %>">
+    <div>
+      <h2><%= vehicleData.inv_year %> <%= vehicleData.inv_make %> <%= vehicleData.inv_model %></h2>
+      <p>Price: <%= new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(vehicleData.inv_price) %></p>
+    </div>
+  </div>
+
+  <form action="/inquiry/submit" method="post">
+    <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+    <label for="inquiry_firstname">First Name:</label>
+    <input type="text" name="inquiry_firstname" id="inquiry_firstname"
+      value="<%= inquiry_firstname %>" required>
+
+    <label for="inquiry_lastname">Last Name:</label>
+    <input type="text" name="inquiry_lastname" id="inquiry_lastname"
+      value="<%= inquiry_lastname %>" required>
+
+    <label for="inquiry_email">Email:</label>
+    <input type="email" name="inquiry_email" id="inquiry_email"
+      value="<%= inquiry_email %>" required>
+
+    <label for="inquiry_message">Message:</label>
+    <textarea name="inquiry_message" id="inquiry_message"
+      rows="5" minlength="10" required><%= inquiry_message %></textarea>
+
+    <button type="submit">Submit Inquiry</button>
+  </form>
+
+  <p><a href="/inv/detail/<%= inv_id %>">Back to Vehicle Details</a></p>
+</div>
